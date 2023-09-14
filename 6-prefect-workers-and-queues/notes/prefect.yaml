@@ -1,0 +1,32 @@
+# Welcome to your prefect.yaml file! You can use this file for storing and managing
+# configuration for deploying your flows. We recommend committing this file to source
+# control along with your flow code.
+
+# Generic metadata about this project
+name: tutorial
+prefect-version: 2.13.0
+
+# build section allows you to manage and build docker images
+build: null
+
+# push section allows you to manage if and how this project is uploaded to remote locations
+push: null
+
+# pull section allows you to provide instructions for cloning this project in remote locations
+pull:
+- prefect.deployments.steps.set_working_directory:
+    directory: /Users/jeffreykatz/Documents/jigsaw/curriculum/1-career-services/prefect-curriculum/6-prefect-workers-and-queues/code
+
+# the deployments section allows you to provide configuration for deploying flows
+deployments:
+- name: tx-receipts
+  version: null
+  tags: []
+  description: null
+  schedule: {"interval": 300}
+  entrypoint: index.py:get_restaurants
+  parameters: {"url": "HONDURAS MAYA CAFE & BAR LLC"}
+  work_pool:
+    name: default-agent-pool
+    work_queue_name: tx-receipt-calls
+    job_variables: {}

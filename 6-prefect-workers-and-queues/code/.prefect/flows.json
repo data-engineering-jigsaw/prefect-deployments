@@ -1,0 +1,3 @@
+{
+  "get-restaurants": "index.py:get_restaurants"
+}

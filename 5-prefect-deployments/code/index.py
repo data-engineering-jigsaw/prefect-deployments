@@ -1,6 +1,7 @@
 import requests
-from prefect.server.schemas.schedules import IntervalSchedule
 from prefect import flow, task
+from prefect.server.schemas.schedules import IntervalSchedule
+
 
 @task
 def find_receipts(name):
@@ -15,7 +16,7 @@ def get_restaurants(url: str):
 
 get_restaurants("HONDURAS MAYA CAFE & BAR LLC")
 
-# if __name__ == "__main__":
-#     get_restaurants.serve(
-#         name="get-restaurants-deployment"
-#         )
+if __name__ == "__main__":
+    get_restaurants.serve(
+        name="get-restaurants-deployment"
+        )

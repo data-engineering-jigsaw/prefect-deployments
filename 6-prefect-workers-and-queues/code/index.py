@@ -1,6 +1,8 @@
 import requests
-from prefect.server.schemas.schedules import IntervalSchedule
 from prefect import flow, task
+from prefect.deployments.deployments import Deployment
+from prefect.server.schemas.schedules import IntervalSchedule
+
 
 @task
 def find_receipts(name):
@@ -13,7 +15,7 @@ def get_restaurants(url: str):
     receipts = find_receipts(url)
     return receipts
 
-get_restaurants("HONDURAS MAYA CAFE & BAR LLC")
+# add the lines above to the top of the index.py file
 
 # if __name__ == "__main__":
 #     get_restaurants.serve(
